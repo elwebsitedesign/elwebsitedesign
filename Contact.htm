@@ -161,6 +161,30 @@ src="instagramicn.png" border=0></a>
 <br/>
 <br/>
 
+<div id="paypal-button-container"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AZffBDt6ufmhlrKGpkwzo-ZZAHYbbbpVzhUKLWAh1JfoffrhGRp5H1aEnCwY05JBe37eNatrF6k0FX7K&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          'plan_id': 'P-1YV03268YB466931CMBAMD7Q'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID);
+      }
+  }).render('#paypal-button-container');
+</script>
+
+
+
+
 
 
 </body>
